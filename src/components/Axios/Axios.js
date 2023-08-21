@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const AxiosInstance = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: 
+    process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : process.env.REACT_APP_API_URL,
     timeout:50000,
 });
 
