@@ -1,0 +1,24 @@
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('/Users/hillarybrito/Desktop/Sites/Module-4/Projects/valleyvows-app/valleyvows-frontend/public/valleyvows-bg-assets/stardew_backdrop_home.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.box {
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  background-color: #f8f8f8;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
