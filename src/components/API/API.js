@@ -55,7 +55,8 @@ async function updateUserProfileAPI(id, data) {
 }
 async function deleteUserProfileAPI(id) {
   try {
-    await Axios.delete(`/profile/${id}`);
+   let result =  await Axios.delete(`/profile/${id}`);
+   return result;
   } catch (error) {
     console.log(error);
   }
@@ -66,7 +67,6 @@ async function getAllGiftsSentAPI() {
     let result = await Axios.get("/gift-sent");
     return result;
   } catch (error) {
-    console.log(error);
   }
 }
 
