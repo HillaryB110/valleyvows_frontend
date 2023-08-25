@@ -1,0 +1,41 @@
+.navbar {
+  background-color: tan;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar-icon {
+  /* Add your icon styling here */
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #b8860b; /* Brown Golden color */
+  margin: 0 10px;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: auto; /* Pushes the title to the left */
+  color: #b8860b; /* Brown Golden color */
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #333;
+  font-size: 18px;
+  margin-left: 20px; /* Adjusted margin */
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-link:hover {
+  color: darkslategray;
+}

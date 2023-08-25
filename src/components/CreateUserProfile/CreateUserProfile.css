@@ -1,0 +1,95 @@
+/* CreateUserProfile.css */
+
+.background {
+  background-color: #f4f4f4;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('/Users/hillarybrito/Desktop/Sites/Module-4/Projects/valleyvows-app/valleyvows-frontend/public/valleyvows-bg-assets/background_day.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.489);
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-user-profile-card {
+  margin: 0 auto;
+  text-align: center;
+  
+}
+
+.create-user-profile-content {
+  padding: 20px;
+}
+
+.create-user-profile-content h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-text {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.avatar-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.avatar-preview {
+  margin-top: 15px;
+}
+
+.avatar-thumbnail {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.form-text input,
+.form-text textarea,
+.form-text select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-text textarea {
+  resize: vertical;
+}
+
+.gift-image-preview {
+  margin-top: 15px;
+}
+
+.gift-thumbnail {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+button {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+

@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
+
 import "./CreateUserProfile.css";
 import { displayUserProfileAPI } from "../API/userProfileAPI";
 import { getAllGiftsAPI } from "../API/giftsAPI";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getImagesForUserAvatars } from "../data/Images";
 import { getImagesForGifts } from "../data/GiftImages";
 import SeasonBirthday from "../SeasonBirthday/SeasonBirthday";
 
-
 const CreateUserProfile = () => {
   let navigate = useNavigate();
+  let { id } = useParams();
   const [firstname, setFirstname] = useState("");
   const [gender, setGender] = useState("");
   const [birthday, setBirthday] = useState("");
@@ -20,19 +21,20 @@ const CreateUserProfile = () => {
   const [bestGift, setBestGift] = useState("");
   const [bestGiftImage, setBestGiftImage] = useState("");
   const [userAvatar, setUserAvatar] = useState("");
+  const [selectedAvatarUrl, setSelectedAvatarUrl] = useState("");
 
- useEffect(() => {
-   async function fetchGifts() {
-     try {
-       const response = await getAllGiftsAPI();
-       setGifts(response.data); // Set the fetched gift data
-       console.log(gifts)
-     } catch (error) {
-       console.error("Error fetching gifts:", error);
-     }
-   }
-   fetchGifts();
- }, []);
+  useEffect(() => {
+    async function fetchGifts() {
+      try {
+        const response = await getAllGiftsAPI();
+        setGifts(response.data); // Set the fetched gift data
+        console.log(gifts);
+      } catch (error) {
+        console.error("Error fetching gifts:", error);
+      }
+    }
+    fetchGifts();
+  }, []);
 
   const skills = [
     "Mining",
@@ -57,8 +59,6 @@ const CreateUserProfile = () => {
     "Non-Binary5.png",
     "Non-Binary6.png",
   ];
-
-  
 
   const handleFirstNameChange = (event) => {
     setFirstname(event.target.value);
@@ -90,14 +90,15 @@ const CreateUserProfile = () => {
     setBestGift(selectedGiftName);
 
     // Find the selected gift and get its image URL
-    const selectedGift = gifts.find((gift) => gift.gift_name === selectedGiftName);
+    const selectedGift = gifts.find(
+      (gift) => gift.gift_name === selectedGiftName
+    );
     if (selectedGift) {
-      const giftImage = getImagesForGifts(selectedGift.id); 
+      const giftImage = getImagesForGifts(selectedGift.id);
       setBestGiftImage(giftImage);
     } else {
-      setBestGiftImage(""); 
+      setBestGiftImage("");
     }
-    
   };
   const handleUserAvatarChange = (event) => {
     const selectedAvatar = event.target.value;
@@ -107,6 +108,7 @@ const CreateUserProfile = () => {
       variant: selectedAvatar.slice(-5, -4),
     });
     setUserAvatar(avatarUrl);
+    setSelectedAvatarUrl(avatarUrl);
   };
 
   const filteredAvatarOptions =
@@ -124,10 +126,12 @@ const CreateUserProfile = () => {
       bio_short: bioShort,
       full_profile: fullProfile,
       best_gift: bestGift,
-      user_avatar: userAvatar,
+      user_avatar: selectedAvatarUrl,
     };
     alert("Profile creation was successful!");
-    navigate(`/user-profile`);
+    navigate(`/profile/${id}`);
+
+    navigate(`/profile/${id}`, { state: { userProfileDetails } });
 
     try {
       await displayUserProfileAPI(userProfileDetails);
@@ -187,7 +191,8 @@ const CreateUserProfile = () => {
                 />
               </label>
               {SeasonBirthday}
-              <SeasonBirthday />
+              <SeasonBirthday handleBirthdayChange={handleBirthdayChange}
+              selectedBirthday={birthday} />
 
               <label className="form-text">
                 Bio (Short):
