@@ -12,7 +12,7 @@ function NavBar() {
         <NavLink className="navbar-link" to="/">
           Home
         </NavLink>
-        <NavLink className="navbar-link" to="/user-profile">
+        <NavLink className="navbar-link" to="/profile/:id">
           My Profile
         </NavLink>
       </div>
