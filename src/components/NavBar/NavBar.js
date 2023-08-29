@@ -15,6 +15,7 @@ function NavBar() {
         <NavLink className="navbar-link" to="/profile/:id">
           My Profile
         </NavLink>
+        <NavLink className="navbar-link" to="/dating-pool">Dating Pools</NavLink>
       </div>
     </nav>
   );
